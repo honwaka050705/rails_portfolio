@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 環境構築
+## 構築手順
+- Gighubからリポジトリをcloneする。
+- .envファイルを作成する。
+  - USERNAME=<ユーザー名>
+  - MYSQL_DATABASE=<DB名>
+- コンテナをビルドする。(イメージの作成)
+```
+$ docker-compose build
+```
 
-Things you may want to cover:
+- DBを作成する。
+```
+$ docker-compose web rails db:create
+```
 
-* Ruby version
+- コンテナを起動する。
+```
+docker-compose up -d
+```
 
-* System dependencies
+## 環境構築後の動作確認
+- ブラウザで`localhost:3001`にアクセスする。
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# DB操作
+- migrationを使用していない。
+- ridgepoleでDB操作を行う。

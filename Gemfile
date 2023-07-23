@@ -11,7 +11,7 @@ gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
 gem 'mysql2'
-
+gem 'ridgepole'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.1'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
