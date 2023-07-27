@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
       git \
       nodejs \
       vim
+RUN npm i bootstrap-icons
 RUN gem update --system ${RUBYGEMS_VERSION} && bundle install
 COPY . /app
 COPY entrypoint.sh /usr/bin/

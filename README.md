@@ -27,3 +27,10 @@ docker-compose up -d
 # DB操作
 - migrationを使用していない。
 - ridgepoleでDB操作を行う。
+
+# よく使うdocker-composeコマンド
+- TODO 後日、makeコマンドインストールしてコマンド入力を簡略化予定。
+- [参考]https://www.aska-ltd.jp/jp/blog/212
+```
+$ docker-compose exec web /bin/bash
+```
