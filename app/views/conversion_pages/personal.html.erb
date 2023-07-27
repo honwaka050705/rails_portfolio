@@ -3,8 +3,29 @@
 <% end %>
 
 <h1>契約書類の作成などで使いたくなる変換</h1>
-<p>Find me in app/views/conversion_pages/personal.html.erb</p>
 <div class="container">
-  <input type="text" class="emperor"  />
-  <div class="chg_ad"></div>
+  <h2>和暦　西暦</h2>
+  <div class="row align-items-start">
+    <div class="col">
+      <div class="d-flex flex-row">
+        <div>和暦：</div>
+        <div>
+          <select class="form-select emperor" aria-label="Default select example">
+            <option selected></option>
+            <option value="126">令和</option>
+            <option value="125">平成</option>
+            <option value="124">昭和</option>
+            <option value="123">大正</option>
+            <option value="122">明治</option>
+          </select>
+        </div>
+        <div><input class="form-control nippons_year" /></div>    
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex flex-row">
+        <div>西暦：</div><div class="chg_ad"></div>
+      </div>
+    </div>
+  </div>
 </div>
