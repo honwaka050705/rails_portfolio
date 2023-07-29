@@ -11,7 +11,8 @@ $(function(){
 });
 
 $("#nippons_year").on("blur", function() {
-  $("#chg_ad").val("");
+  if ($(this).val() == "") return 
+  $("#chg_ad").text("");
   $.ajax({
     type: 'GET',
     url: '/to_ad',
@@ -19,7 +20,22 @@ $("#nippons_year").on("blur", function() {
     dataType: 'json'
   }).done(function(data) {
     $("#chg_ad").text(data.chg_ad + "年");
-    console.log("chg_adのtext:");
-    console.log($("#chg_ad").text());
+  })
+});
+
+$("#input_ad").on("blur", function() {
+  if ($(this).val() == "") return
+  // $("#chg_nippon_years").text("");
+  $.ajax({
+    type: 'GET',
+    url: '/to_nippons_year',
+    data: { ad: $(this).val() },
+    dataType: 'json'
+  }).done(function(data) {
+    $.each(data, function(index, val) {
+      console.log(val.nippons_year);
+      console.log($("#chg_nippon_years").text());
+      $("#chg_nippon_years").text(val.nippons_year);
+    })
   })
 });

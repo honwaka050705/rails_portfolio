@@ -3,9 +3,6 @@ class ConversionPagesController < ApplicationController
   end
   
   def emperor
-    # TODO DBをpersonalのyeasのカラムに合わせる。Schemaに書き込んで以下のコマンドを実行。
-    # `bundle exec rails ridgepole:apply`
-    # TODO 2023/07/27(木)はSelectBoxに返却する値を取得して返却する。
     emperors = Year.all
     respond_to do |format|
       format.html
@@ -14,15 +11,35 @@ class ConversionPagesController < ApplicationController
   end
   
   def to_ad
-    years = Year.find_by(generation: params[:emperor].to_i)
+    year = Year.find_by(generation: params[:emperor].to_i)
     # TODO moduleで処理する
-    @ret_years = { emperor: years[:generation], 
-                  nippons_year: params[:nippons_year], 
-                  chg_ad: (years[:ad] + params[:nippons_year].to_i - 1).to_s }
+    ret_year = { chg_ad: (year[:ad] + params[:nippons_year].to_i - 1).to_s }
 
     respond_to do |format|
       format.html
-      format.json { render json: @ret_years }
+      format.json { render json: ret_year }
+    end
+  end
+
+  def to_nippons_year
+
+    # 同一西暦で複数元号が存在する年もある。
+    # 考慮が必要。考え出したら、仕様が次から次に出てくる。
+    # 一旦、撤退(R05.07.29)
+
+    # years = Year.where(ad: params[:ad].to_i)
+    # debugger
+    # ret_years = years.each do |year|
+    #   emperor: year[:emperor_name], 
+    #   nippon_year: year[]
+    # end
+
+    # (仮データ)
+    ret_years = [{ nippons_year: '令和５年' }]
+
+    respond_to do |format|
+      format.html
+      format.json { render json: ret_years }
     end
   end
 end
