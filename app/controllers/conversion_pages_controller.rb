@@ -16,13 +16,13 @@ class ConversionPagesController < ApplicationController
   def to_ad
     years = Year.find_by(generation: params[:emperor].to_i)
     # TODO moduleで処理する
-    @ret_years = { emperor: years[:generation], 
+    ret_years = { emperor: years[:generation], 
                   nippons_year: params[:nippons_year], 
                   chg_ad: (years[:ad] + params[:nippons_year].to_i - 1).to_s }
 
     respond_to do |format|
       format.html
-      format.json { render json: @ret_years }
+      format.json { render json: ret_years }
     end
   end
 end
