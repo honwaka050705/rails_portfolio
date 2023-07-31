@@ -1,0 +1,29 @@
+<% content_for :common do %>
+  <%= javascript_import_module_tag "custom" %>
+<% end %>
+
+<h1>契約書類の記入などで使いたくなる変換</h1>
+<div class="container">
+  <div class="container m-3 p-4 border border-info rounded">
+    <div class="mb-3">
+      <h2>和暦 -> 西暦</h2>
+    </div>
+    <div class="mb-3">
+      <div class="d-flex flex-row">
+        <div for="emperor" class="form-label">和暦</div>
+        <div>
+          <select id="emperor" class="form-select" aria-label="Default select example">
+            <option selected></option>
+          </select>
+        </div>
+        <div><input id="nippons_year" class="form-control" /></div>    
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="d-flex flex-row">
+        <div class="form-text">西暦：</div>
+        <div id="chg_ad" class="form-text"></div>
+      </div>
+    </div>
+  </div>
+</div>
