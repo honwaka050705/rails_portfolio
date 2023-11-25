@@ -16,7 +16,8 @@
             <option selected></option>
           </select>
         </div>
-        <div><input id="nippons_year" class="form-control" /></div>    
+        <div><input id="nippons_year" class="form-control" /></div>
+        <div class="form-label">年</div>
       </div>
     </div>
     <div class="mb-3">
@@ -25,5 +26,26 @@
         <div id="chg_ad" class="form-text"></div>
       </div>
     </div>
+  </div>
+  <div class="container m-3 p-4 border border-info rounded">
+    <div class="mb-3">
+      <h2>西暦 -> 和暦(工事中)</h2>
+    </div>
+    <div class="mb-3">
+      <div class="d-flex flex-row">
+        <div for="ad" class="form-label">西暦：</div>
+        <div><input id="input_ad" class="form-control" /></div>
+        <div class="form-label">年</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="d-flex flex-row">
+        <div class="form-text">和暦：</div>
+        <div id="chg_nippon_years" class="form-text">変換後の値</div>
+      </div>      
+    </div>
+  </div>
+  <div class="container m-3 p-4 border border-info rounded">
+    <%= link_to 'TSV出力', export_path(format: :csv) %>
   </div>
 </div>
